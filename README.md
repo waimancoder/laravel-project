@@ -23,3 +23,32 @@ docker-compose up --build -d
 ```
 
 This command will build and run the Docker containers in the background. The Laravel API will be accessible at **http://api.localhost** and the Next.js frontend at **http://localhost**.
+
+# Development
+
+## Laravel API
+
+The Laravel API is located in the root directory of the repository. To run migrations and execute artisan commands, you can use **docker-compose exec**:
+
+```zsh
+docker-compose exec app php artisan migrate
+```
+
+## Next.js Frontend
+
+The Next.js frontend is located in the frontend directory. To install dependencies and run development tasks, you can use **docker-compose exec**:
+
+```zsh
+docker-compose exec react npm install
+docker-compose exec react npm run dev
+```
+
+# Production
+
+To build the production version of the Next.js frontend, run:
+
+```zsh
+docker-compose exec react npm run build
+```
+
+The production build will be available in the frontend/build directory and served by the Nginx web server.
