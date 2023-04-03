@@ -49,7 +49,7 @@ class ApiAuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()->all()], 422);
@@ -74,7 +74,8 @@ class ApiAuthController extends Controller
     {
         Auth::user()->tokens()->where('id', Auth::user()->currentAccessToken()->id)->delete();
         return response()->json([
-            'status' => 'success',
+            'status' => true,
+            'statusCode' => 200,
             'message' => 'Logout successful.'
         ]);
     }
