@@ -20,7 +20,7 @@ class ApiAuthController extends Controller
             'fullname' => 'required|string|max:255',
             'phone_no' => 'required|string|max:255',
             'role' => 'required|string|max:255|in:student,staff,outsider',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string',
         ]);
         if ($validator->fails()) {
             return response([
@@ -49,7 +49,7 @@ class ApiAuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string',
         ]);
         if ($validator->fails()) {
             return response(['errors' => $validator->errors()->all()], 422);

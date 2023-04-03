@@ -1,0 +1,36 @@
+{
+    "name": "react-library",
+    "version": "0.0.0",
+    "description": "> TODO: description",
+    "author": "waimancoder <waimancoder@gmail.com>",
+    "homepage": "https://github.com/waimancoder/laravel-project#readme",
+    "license": "ISC",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/types/index.d.ts",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+       "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/waimancoder/laravel-project.git"
+    },
+    "scripts": {
+        "test": "node ./__tests__/react-library.test.js",
+        "build": "npm run tsc",
+        "tsc": "tsc -p ."
+    },
+    "bugs": {
+        "url": "https://github.com/waimancoder/laravel-project/issues"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+      "stencil-library": "*"
+    }
+}
